@@ -45,6 +45,8 @@
       min-height: 100vh;
     }
 
+    /* HEADER */
+
     header {
       position: fixed;
       top: 0;
@@ -267,8 +269,13 @@
       width: 100%;
       padding-top: 100%;
       border-radius: 50%;
-      background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.16), transparent 70%);
-      box-shadow: none;
+      background: radial-gradient(
+        circle at 50% 40%,
+        rgba(244, 185, 59, 0.85) 0%,
+        rgba(244, 185, 59, 0.45) 40%,
+        rgba(3, 7, 90, 0) 75%
+      );
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
       overflow: visible;
       display: flex;
       align-items: center;
@@ -278,7 +285,7 @@
 
     .hero-orbit-inner {
       position: absolute;
-      inset: 12%;
+      inset: 18%;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -289,8 +296,15 @@
       font-size: 1rem;
       line-height: 1.35;
       color: #ffffff;
-      background: radial-gradient(circle at 50% 0%, rgba(0, 0, 0, 0.35), transparent 55%);
+      background: radial-gradient(
+        circle at 50% 40%,
+        rgba(0, 0, 0, 0.45) 0%,
+        rgba(0, 0, 0, 0.15) 40%,
+        transparent 80%
+      );
     }
+
+    /* ОБЩИЕ ЭЛЕМЕНТЫ СЕКЦИЙ */
 
     .section-title {
       font-size: 1.7rem;
@@ -379,6 +393,8 @@
       color: var(--accent-gold);
     }
 
+    /* ТАРИФЫ */
+
     .pricing-table {
       border-radius: 20px;
       border: 1px solid var(--border-soft);
@@ -451,6 +467,8 @@
       margin-top: 0.5rem;
     }
 
+    /* ТРИПВАЙЕРЫ */
+
     .tripwires {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -486,6 +504,8 @@
       margin-top: auto;
     }
 
+    /* ОТЗЫВЫ */
+
     .reviews-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -514,6 +534,8 @@
       color: var(--text-muted);
       margin-bottom: 0.6rem;
     }
+
+    /* FAQ */
 
     .faq-list {
       display: grid;
@@ -553,6 +575,8 @@
       font-size: 0.88rem;
       color: var(--text-muted);
     }
+
+    /* КОНТАКТЫ */
 
     .contact-section {
       position: relative;
@@ -668,7 +692,7 @@
       background: var(--accent-gold);
     }
 
-    /* Анимации */
+    /* АНИМАЦИИ */
 
     @keyframes float-soft {
       0%   { transform: translateY(0); }
@@ -687,7 +711,7 @@
       }
     }
 
-    /* Адаптив */
+    /* АДАПТИВ */
 
     @media (max-width: 900px) {
       nav ul {
@@ -976,7 +1000,7 @@
           <h2 class="section-title">Тарифы и форматы занятий</h2>
           <p class="section-intro">Стоимость зависит от возраста, формата и длительности занятия. Все уроки проходят онлайн, возможна оплата помесячно или блоками от 4 занятий.</p>
 
-        <div class="pricing-table" aria-label="Индивидуальные занятия">
+          <div class="pricing-table" aria-label="Индивидуальные занятия">
             <div class="pricing-header">
               <h3>Индивидуальные занятия онлайн (1 ученик)</h3>
               <p class="pricing-note">Личное сопровождение, программа под ваши задачи и темп.</p>
