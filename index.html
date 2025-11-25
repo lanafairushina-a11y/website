@@ -8,10 +8,12 @@
   <style>
     :root {
       --bg-deep: #060f80;
+      --bg-soft: #1a208f;
       --accent-gold: #f4b93b;
       --accent-gold-soft: #ffdea3;
       --text-main: #f8f5ef;
       --text-muted: #c7c5d6;
+      --card-bg: #161f86;
       --border-soft: rgba(244, 185, 59, 0.35);
       --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.5);
     }
@@ -26,7 +28,7 @@
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: radial-gradient(circle at top left, #3a4bff 0, var(--bg-deep) 40%, #05073a 100%);
       color: var(--text-main);
-      line-height: 1.6;
+      line-height: 1.5;
       scroll-behavior: smooth;
     }
 
@@ -44,8 +46,6 @@
     .page {
       min-height: 100vh;
     }
-
-    /* HEADER */
 
     header {
       position: fixed;
@@ -75,17 +75,19 @@
     }
 
     .logo-mark {
-      width: 46px;
-      aspect-ratio: 1 / 1;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
-      background: radial-gradient(circle at 30% 20%, var(--accent-gold-soft), var(--accent-gold) 40%, #020b3d 100%);
+      background: radial-gradient(circle at 30% 20%, var(--accent-gold-soft), var(--accent-gold) 45%, #020b3d 100%);
       border: 2px solid var(--accent-gold);
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: "Playfair Display", serif;
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 0.9rem;
+      color: #201109;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.45);
     }
 
     .logo-text-main {
@@ -136,7 +138,7 @@
 
     section {
       padding: 4.5rem 1.25rem;
-      background: radial-gradient(circle at top, rgba(255, 222, 163, 0.08), transparent 60%);
+      background: radial-gradient(circle at top, rgba(255, 222, 163, 0.06), transparent 60%);
     }
 
     .container {
@@ -144,13 +146,24 @@
       margin: 0 auto;
     }
 
-    /* HERO */
-
+    /* Hero */
     .hero {
       position: relative;
       overflow: hidden;
-      padding-top: 5.5rem;
-      padding-bottom: 4.5rem;
+      padding-top: 5.2rem;
+      padding-bottom: 4.2rem;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(244, 185, 59, 0.22), transparent 55%),
+        radial-gradient(circle at 80% 10%, rgba(244, 185, 59, 0.18), transparent 60%),
+        radial-gradient(circle at 40% 100%, rgba(255, 135, 60, 0.3), transparent 60%);
+      opacity: 0.9;
+      pointer-events: none;
     }
 
     .hero-inner {
@@ -162,31 +175,31 @@
     }
 
     .eyebrow {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 0.13em;
       color: var(--accent-gold-soft);
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.6rem;
     }
 
     .hero h1 {
-      font-size: clamp(1.8rem, 2.6vw + 1.2rem, 2.5rem);
-      line-height: 1.25;
-      margin-bottom: 0.7rem;
+      font-size: clamp(2.1rem, 2.7vw + 1.6rem, 3rem);
+      margin-bottom: 0.9rem;
+      line-height: 1.2;
     }
 
     .hero-lead {
-      font-size: 1rem;
+      font-size: 0.96rem;
       color: var(--text-muted);
       max-width: 30rem;
-      margin-bottom: 1.75rem;
+      margin-bottom: 1.4rem;
     }
 
     .hero-badges {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1.6rem;
     }
 
     .badge {
@@ -208,16 +221,15 @@
     .btn-secondary {
       border-radius: 999px;
       padding: 0.7rem 1.4rem;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       font-weight: 500;
       cursor: pointer;
       border: 1px solid transparent;
-      transition: all 0.22s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, filter 0.2s ease;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 0.35rem;
-      text-decoration: none;
     }
 
     .btn-primary {
@@ -243,9 +255,10 @@
     }
 
     .hero-note {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--text-muted);
-      margin-top: 0.35rem;
+      margin-top: 0.3rem;
+      max-width: 28rem;
     }
 
     .hero-visual {
@@ -260,8 +273,7 @@
       border-radius: 22px;
       box-shadow: 0 22px 60px rgba(0, 0, 0, 0.7);
       object-fit: cover;
-      margin-bottom: 1.4rem;
-      animation: float-soft 7s ease-in-out infinite;
+      margin-bottom: 1.2rem;
     }
 
     .hero-orbit {
@@ -269,53 +281,46 @@
       width: 100%;
       padding-top: 100%;
       border-radius: 50%;
-      background: radial-gradient(
-        circle at 50% 40%,
-        rgba(244, 185, 59, 0.85) 0%,
-        rgba(244, 185, 59, 0.45) 40%,
-        rgba(3, 7, 90, 0) 75%
-      );
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
-      overflow: visible;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      animation: fade-up 0.8s ease-out 0.2s both;
+      background:
+        radial-gradient(circle at 30% 15%, rgba(255,255,255,0.7), transparent 55%),
+        radial-gradient(circle at 60% 90%, rgba(255,181,94,0.65), transparent 70%),
+        radial-gradient(circle at 50% 50%, rgba(10,18,100,0.98), #02053c);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
     }
 
     .hero-orbit-inner {
       position: absolute;
-      inset: 18%;
+      inset: 23%;
       border-radius: 50%;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(255,255,255,0.45), transparent 55%),
+        radial-gradient(circle at 20% 80%, rgba(244, 185, 59, 0.7), transparent 65%);
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 1.2rem;
-      font-family: "Playfair Display", serif;
-      font-size: 1.08rem;
-      line-height: 1.35;
+      padding: 1.5rem;
       color: #ffffff;
+      font-family: "Playfair Display", serif;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .hero-orbit-inner strong {
       font-weight: 600;
-      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.55);
-      background: radial-gradient(
-        circle at 50% 40%,
-        rgba(0, 0, 0, 0.45) 0%,
-        rgba(0, 0, 0, 0.15) 40%,
-        transparent 80%
-      );
     }
 
     .section-title {
-      font-size: 1.7rem;
-      margin-bottom: 1.1rem;
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
     }
 
     .section-intro {
       max-width: 32rem;
       color: var(--text-muted);
-      margin-bottom: 2rem;
-      font-size: 0.96rem;
+      margin-bottom: 1.9rem;
+      font-size: 0.94rem;
     }
 
     .grid {
@@ -332,34 +337,31 @@
     }
 
     .card {
-      background:
-        radial-gradient(circle at top left, rgba(244, 185, 59, 0.18), transparent 55%),
-        radial-gradient(circle at bottom right, rgba(255, 222, 163, 0.2), transparent 60%),
-        #161f86;
+      background: radial-gradient(circle at top left, rgba(244, 185, 59, 0.18), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(255, 222, 163, 0.2), transparent 60%),
+                  var(--card-bg);
       border-radius: 18px;
       padding: 1.4rem 1.5rem;
       border: 1px solid var(--border-soft);
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
       position: relative;
       overflow: hidden;
-      animation: fade-up 0.8s ease-out;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.7);
     }
 
     .card-title {
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       margin-bottom: 0.5rem;
     }
 
     .card p {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--text-muted);
-    }
-
-    .tagline {
-      font-style: italic;
-      color: var(--accent-gold-soft);
-      margin-top: 0.75rem;
-      font-size: 0.9rem;
     }
 
     .about-img,
@@ -367,9 +369,14 @@
     .promo-img {
       width: 100%;
       border-radius: 16px;
-      margin-bottom: 1rem;
+      margin-bottom: 0.9rem;
       display: block;
       object-fit: cover;
+    }
+
+    .kids-img {
+      max-height: 260px;
+      object-position: center;
     }
 
     .list {
@@ -380,9 +387,9 @@
     .list li {
       position: relative;
       padding-left: 1rem;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--text-muted);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.35rem;
     }
 
     .list li::before {
@@ -393,21 +400,19 @@
       color: var(--accent-gold);
     }
 
-    /* ТАРИФЫ */
-
+    /* Pricing */
     .pricing-table {
       border-radius: 20px;
       border: 1px solid var(--border-soft);
-      background:
-        radial-gradient(circle at top left, rgba(255, 222, 163, 0.08), transparent 60%),
-        rgba(1, 5, 40, 0.93);
+      background: radial-gradient(circle at top left, rgba(255, 222, 163, 0.08), transparent 60%),
+                  rgba(1, 5, 40, 0.93);
       box-shadow: var(--shadow-soft);
-      overflow-x: auto;
-      margin-bottom: 2.25rem;
+      overflow: hidden;
+      margin-bottom: 2.1rem;
     }
 
     .pricing-header {
-      padding: 1.2rem 1.5rem;
+      padding: 1.1rem 1.4rem;
       border-bottom: 1px solid rgba(244, 185, 59, 0.3);
       background: linear-gradient(120deg, rgba(244, 185, 59, 0.16), transparent);
       display: flex;
@@ -418,29 +423,28 @@
     }
 
     .pricing-header h3 {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
     }
 
     .pricing-note {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--text-muted);
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.9rem;
-      min-width: 520px;
+      font-size: 0.86rem;
     }
 
     th, td {
-      padding: 0.7rem 1rem;
+      padding: 0.7rem 0.9rem;
       text-align: left;
     }
 
     th {
       font-weight: 500;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       text-transform: uppercase;
       color: var(--accent-gold-soft);
       letter-spacing: 0.08em;
@@ -462,13 +466,12 @@
     }
 
     .subtle {
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       color: var(--text-muted);
-      margin-top: 0.5rem;
+      margin-top: 0.45rem;
     }
 
-    /* ТРИПВАЙЕРЫ */
-
+    /* Tripwires */
     .tripwires {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -479,17 +482,13 @@
       border-radius: 18px;
       padding: 1.5rem 1.6rem;
       border: 1px solid rgba(244, 185, 59, 0.6);
-      background:
-        radial-gradient(circle at top, rgba(244, 185, 59, 0.11), transparent 60%),
-        rgba(6, 10, 60, 0.96);
+      background: radial-gradient(circle at top, rgba(244, 185, 59, 0.11), transparent 60%),
+                  rgba(6, 10, 60, 0.96);
       box-shadow: 0 18px 44px rgba(0, 0, 0, 0.7);
-      display: flex;
-      flex-direction: column;
-      animation: fade-up 0.8s ease-out;
     }
 
     .trip-title {
-      font-size: 1.1rem;
+      font-size: 1.06rem;
       margin-bottom: 0.4rem;
     }
 
@@ -499,13 +498,32 @@
       margin-bottom: 0.5rem;
     }
 
-    .trip-card .btn-primary,
-    .trip-card .btn-secondary {
-      margin-top: auto;
+    .trip-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
     }
 
-    /* ОТЗЫВЫ */
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(244, 185, 59, 0.5);
+      font-size: 0.76rem;
+      color: var(--accent-gold-soft);
+      gap: 0.4rem;
+      margin-bottom: 0.7rem;
+    }
 
+    .pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-gold);
+    }
+
+    /* Reviews */
     .reviews-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -515,28 +533,26 @@
     .review-card {
       background: rgba(6, 10, 60, 0.95);
       border-radius: 16px;
-      padding: 1.3rem 1.4rem;
+      padding: 1.2rem 1.3rem;
       border: 1px solid rgba(244, 185, 59, 0.3);
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--text-muted);
-      animation: fade-up 0.8s ease-out;
     }
 
     .review-name {
       font-weight: 500;
       color: var(--accent-gold-soft);
-      margin-bottom: 0.15rem;
+      margin-bottom: 0.1rem;
     }
 
     .review-meta {
       font-size: 0.78rem;
       color: var(--text-muted);
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.5rem;
     }
 
     /* FAQ */
-
     .faq-list {
       display: grid;
       gap: 0.75rem;
@@ -572,19 +588,28 @@
 
     details p {
       margin-top: 0.5rem;
-      font-size: 0.88rem;
+      font-size: 0.87rem;
       color: var(--text-muted);
     }
 
-    /* КОНТАКТЫ */
-
+    /* Contact */
     .contact-section {
       position: relative;
       overflow: hidden;
+      background: radial-gradient(circle at 15% 0, rgba(244, 185, 59, 0.16), transparent 55%),
+                  radial-gradient(circle at 85% 100%, rgba(244, 185, 59, 0.22), transparent 60%),
+                  #050b39;
+    }
+
+    .contact-section::before {
+      content: "";
+      position: absolute;
+      inset: -30%;
       background:
-        radial-gradient(circle at 15% 0, rgba(244, 185, 59, 0.16), transparent 55%),
-        radial-gradient(circle at 85% 100%, rgba(244, 185, 59, 0.22), transparent 60%),
-        #050b39;
+        radial-gradient(circle at 10% 30%, rgba(255, 222, 163, 0.15), transparent 55%),
+        radial-gradient(circle at 90% 30%, rgba(255, 159, 74, 0.2), transparent 55%);
+      opacity: 0.7;
+      pointer-events: none;
     }
 
     .contact-inner {
@@ -596,9 +621,9 @@
     }
 
     .contact-lead {
-      font-size: 0.96rem;
+      font-size: 0.94rem;
       color: var(--text-muted);
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.1rem;
       max-width: 28rem;
     }
 
@@ -608,7 +633,7 @@
     }
 
     label {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.09em;
       color: var(--accent-gold-soft);
@@ -621,7 +646,7 @@
       padding: 0.55rem 0.7rem;
       background: rgba(3, 6, 40, 0.95);
       color: var(--text-main);
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       outline: none;
     }
 
@@ -636,7 +661,7 @@
     }
 
     .contact-meta {
-      font-size: 0.86rem;
+      font-size: 0.85rem;
       color: var(--text-muted);
       margin-top: 1rem;
     }
@@ -646,7 +671,7 @@
     }
 
     footer {
-      padding: 1.4rem 1.25rem 2rem;
+      padding: 1.3rem 1.25rem 2rem;
       font-size: 0.8rem;
       color: var(--text-muted);
       border-top: 1px solid rgba(244, 185, 59, 0.25);
@@ -674,45 +699,7 @@
       border-bottom: 1px dotted rgba(244, 185, 59, 0.4);
     }
 
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.35rem 0.8rem;
-      border-radius: 999px;
-      border: 1px solid rgba(244, 185, 59, 0.5);
-      font-size: 0.78rem;
-      color: var(--accent-gold-soft);
-      gap: 0.4rem;
-    }
-
-    .pill-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent-gold);
-    }
-
-    /* АНИМАЦИИ */
-
-    @keyframes float-soft {
-      0%   { transform: translateY(0); }
-      50%  { transform: translateY(-6px); }
-      100% { transform: translateY(0); }
-    }
-
-    @keyframes fade-up {
-      from {
-        opacity: 0;
-        transform: translateY(16px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* АДАПТИВ */
-
+    /* Responsive */
     @media (max-width: 900px) {
       nav ul {
         display: none;
@@ -732,45 +719,63 @@
       }
 
       .hero {
-        padding-top: 4.5rem;
+        padding-top: 4.2rem;
       }
 
       .hero-inner {
-        gap: 2.5rem;
+        gap: 2.3rem;
       }
 
       .hero-visual {
         max-width: 320px;
       }
+
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tbody tr {
+        margin-bottom: 0.9rem;
+        border: 1px solid rgba(244,185,59,0.3);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      tbody td {
+        padding: 0.45rem 0.9rem;
+        position: relative;
+      }
+
+      tbody td::before {
+        content: attr(data-label);
+        display: block;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--accent-gold-soft);
+        margin-bottom: 0.12rem;
+      }
     }
 
     @media (max-width: 600px) {
       section {
-        padding: 3.5rem 1rem;
+        padding: 3.3rem 1rem;
       }
 
       .hero {
-        padding-bottom: 3.5rem;
+        padding-bottom: 3.3rem;
       }
 
       .nav-inner {
         padding-inline: 1rem;
       }
 
-      .pricing-header {
-        padding-inline: 1.1rem;
-      }
-
-      th, td {
-        padding-inline: 0.7rem;
-      }
-
-      .hero-badges {
-        gap: 0.4rem;
-      }
-
-      table {
-        font-size: 0.8rem;
+      .hero h1 {
+        font-size: 1.9rem;
       }
     }
   </style>
@@ -782,7 +787,7 @@
         <a href="#hero" class="logo-block">
           <div class="logo-mark">EKS</div>
           <div>
-            <div class="logo-text-main">EKS Online</div>
+            <div class="logo-text-main">EKS ONLINE</div>
             <div class="logo-text-sub">Английский, который любят дети</div>
           </div>
         </a>
@@ -792,7 +797,7 @@
             <li><a href="#about">О преподавателе</a></li>
             <li><a href="#programs">Программы</a></li>
             <li><a href="#pricing">Тарифы</a></li>
-            <li><a href="#tripwires">Квесты и челленджи</a></li>
+            <li><a href="#tripwires">Квесты и челлендджи</a></li>
             <li><a href="#privacy">Персональные данные</a></li>
             <li><a href="#faq">FAQ</a></li>
             <li><a href="#contact">Контакты</a></li>
@@ -803,7 +808,7 @@
     </header>
 
     <main>
-      <!-- HERO -->
+      <!-- Hero -->
       <section id="hero" class="hero">
         <div class="container hero-inner">
           <div>
@@ -829,8 +834,7 @@
             <img src="me.jpg" alt="Светлана Резникова, преподаватель английского" class="hero-photo" />
             <div class="hero-orbit">
               <div class="hero-orbit-inner">
-                Ты уже совершенство.<br />
-                Я ограняю до бриллианта.
+                <strong>Ты уже совершенство.<br>Я ограняю до бриллианта.</strong>
               </div>
             </div>
           </div>
@@ -842,8 +846,8 @@
         <div class="container">
           <h2 class="section-title">Почему дети любят английский в EKS Online</h2>
           <p class="section-intro">
-            В EKS Online дети приходят не «на урок», а в историю, где английский — язык приключений, эмоций и открытий.
-            Взрослые находят здесь безопасное пространство, чтобы наконец-то заговорить без стеснения.
+            В EKS Online дети приходят не «на урок», а в историю, где английский — язык приключений,
+            эмоций и открытий. Взрослые находят здесь безопасное пространство, чтобы наконец-то заговорить.
           </p>
           <div class="grid grid-3">
             <div class="card">
@@ -852,24 +856,26 @@
               <p>Игровые задания, миссии и истории — ребёнок проходит квест, а не «сидит на занятии».</p>
             </div>
             <div class="card">
+              <img src="motion.jpg" alt="Дети двигаются и радуются на уроке английского" class="kids-img" />
               <h3 class="card-title">Через эмоции и движение</h3>
-              <p>Живые диалоги, мимика, движение, творческие задания — английский становится частью реальной жизни, а не только учебника.</p>
+              <p>Песни, жесты, движение и яркие задания — английский проживается телом и эмоциями, а не только в тетради.</p>
             </div>
             <div class="card">
+              <img src="cartoon.jpg" alt="Дети смотрят и обсуждают урок на английском" class="kids-img" />
               <h3 class="card-title">Через общение</h3>
-              <p>С первого урока ученики говорят по-английски. Мы обсуждаем любимые мультфильмы, игры, мечты, а не только упражнения из тетради.</p>
+              <p>С первого урока мы обсуждаем истории, картинки и видео — дети естественно переходят на английский в диалоге.</p>
             </div>
             <div class="card">
               <h3 class="card-title">Без давления и зубрёжки</h3>
-              <p>Минимум сухой грамматики и «выучи правило», максимум практики в речи. Ошибаться — можно и нужно, это часть пути.</p>
+              <p>Минимум сухой грамматики, максимум живой речи. Ошибаться можно и нужно — так растёт уверенность.</p>
             </div>
             <div class="card">
               <h3 class="card-title">Атмосфера поддержки</h3>
-              <p>Каждый ребёнок чувствует себя важным, услышанным и принятым. Это даёт смелость говорить и пробовать новое.</p>
+              <p>Каждый ребёнок чувствует себя важным и услышанным. Это даёт смелость говорить и пробовать новое.</p>
             </div>
             <div class="card">
               <h3 class="card-title">Прозрачный прогресс</h3>
-              <p>Родители регулярно получают обратную связь: в чём сильные стороны ребёнка, что уже получается и над чем мы работаем дальше.</p>
+              <p>Вы регулярно получаете обратную связь: что уже получается, какие сильные стороны и куда идём дальше.</p>
             </div>
           </div>
         </div>
@@ -891,16 +897,17 @@
                 <li>Кембриджские сертификаты <strong>TKT</strong> и <strong>CELT-P</strong>.</li>
                 <li>Собственная методика, основанная на игре, эмоциях и поддержке.</li>
               </ul>
-              <p class="tagline">Мой девиз: <strong>«Ты уже совершенство. Я ограняю до бриллианта.»</strong></p>
+              <p class="subtle">Мой девиз: <strong>«Ты уже совершенство. Я ограняю до бриллианта.»</strong></p>
             </div>
             <div>
               <div class="card">
+                <img src="week.jpg" alt="Атмосфера уроков EKS Online" class="about-img" />
                 <h3 class="card-title">О подходе</h3>
                 <p>
                   Я создаю тёплую и безопасную атмосферу, в которой дети раскрываются, задают вопросы и не боятся ошибаться.
                   Взрослым помогаю мягко пройти через страх говорить и почувствовать уверенность в своих знаниях.
                 </p>
-                <p class="tagline">Онлайн-формат позволяет заниматься, где бы вы ни находились — дома, в поездке или за границей.</p>
+                <p class="subtle">Онлайн-формат позволяет заниматься, где бы вы ни находились — дома, в поездке или за границей.</p>
               </div>
             </div>
           </div>
@@ -966,34 +973,6 @@
         </div>
       </section>
 
-      <!-- Как проходят уроки -->
-      <section id="how">
-        <div class="container">
-          <h2 class="section-title">Как проходят уроки</h2>
-          <p class="section-intro">Все занятия проходят онлайн. Вам нужны только стабильный интернет, наушники и спокойное место. Всё остальное — на мне.</p>
-          <div class="grid grid-2">
-            <div class="card">
-              <h3 class="card-title">Структура занятия</h3>
-              <ul class="list">
-                <li>Короткая разминка и настрой — на английском, но понятно и комфортно.</li>
-                <li>Ввод новой лексики и грамматики через истории, картинки, видео.</li>
-                <li>Практика в речи: диалоги, ролевые игры, квесты.</li>
-                <li>Закрепление и мини-рефлексия: что получилось лучше всего.</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h3 class="card-title">Инструменты и обратная связь</h3>
-              <ul class="list">
-                <li>Платформы Zoom / Google Meet и интерактивная доска.</li>
-                <li>Материалы после урока: презентации, ссылки, упражнения.</li>
-                <li>Домашние задания в игровом и посильном формате.</li>
-                <li>Регулярная обратная связь родителям о прогрессе ребёнка.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <!-- Тарифы -->
       <section id="pricing">
         <div class="container">
@@ -1016,28 +995,28 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>Дети 4–6 лет</td>
-                  <td>45 минут</td>
-                  <td>Индивидуально</td>
-                  <td>1400 ₽</td>
+                  <td data-label="Возраст">Дети 4–6 лет</td>
+                  <td data-label="Длительность">45 минут</td>
+                  <td data-label="Формат">Индивидуально</td>
+                  <td data-label="Стоимость">1400 ₽</td>
                 </tr>
                 <tr>
-                  <td>Дети 7–11 лет</td>
-                  <td>60 минут</td>
-                  <td>Индивидуально</td>
-                  <td>1800 ₽</td>
+                  <td data-label="Возраст">Дети 7–11 лет</td>
+                  <td data-label="Длительность">60 минут</td>
+                  <td data-label="Формат">Индивидуально</td>
+                  <td data-label="Стоимость">1800 ₽</td>
                 </tr>
                 <tr>
-                  <td>Подростки 12–17 лет</td>
-                  <td>60 минут</td>
-                  <td>Индивидуально</td>
-                  <td>2200 ₽</td>
+                  <td data-label="Возраст">Подростки 12–17 лет</td>
+                  <td data-label="Длительность">60 минут</td>
+                  <td data-label="Формат">Индивидуально</td>
+                  <td data-label="Стоимость">2200 ₽</td>
                 </tr>
                 <tr>
-                  <td>Взрослые</td>
-                  <td>60 минут</td>
-                  <td>Индивидуально</td>
-                  <td>2500 ₽</td>
+                  <td data-label="Возраст">Взрослые</td>
+                  <td data-label="Длительность">60 минут</td>
+                  <td data-label="Формат">Индивидуально</td>
+                  <td data-label="Стоимость">2500 ₽</td>
                 </tr>
               </tbody>
             </table>
@@ -1059,28 +1038,28 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>Дети 4–6 лет</td>
-                  <td>45 минут</td>
-                  <td>Пара</td>
-                  <td>1000 ₽</td>
+                  <td data-label="Возраст">Дети 4–6 лет</td>
+                  <td data-label="Длительность">45 минут</td>
+                  <td data-label="Формат">Пара</td>
+                  <td data-label="Стоимость">1000 ₽</td>
                 </tr>
                 <tr>
-                  <td>Дети 7–11 лет</td>
-                  <td>60 минут</td>
-                  <td>Пара</td>
-                  <td>1300 ₽</td>
+                  <td data-label="Возраст">Дети 7–11 лет</td>
+                  <td data-label="Длительность">60 минут</td>
+                  <td data-label="Формат">Пара</td>
+                  <td data-label="Стоимость">1300 ₽</td>
                 </tr>
                 <tr>
-                  <td>Подростки 12–17 лет</td>
-                  <td>60 минут</td>
-                  <td>Пара</td>
-                  <td>1600 ₽</td>
+                  <td data-label="Возраст">Подростки 12–17 лет</td>
+                  <td data-label="Длительность">60 минут</td>
+                  <td data-label="Формат">Пара</td>
+                  <td data-label="Стоимость">1600 ₽</td>
                 </tr>
                 <tr>
-                  <td>Взрослые</td>
-                  <td>60 минут</td>
-                  <td>Пара</td>
-                  <td>1800 ₽</td>
+                  <td data-label="Возраст">Взрослые</td>
+                  <td data-label="Длительность">60 минут</td>
+                  <td data-label="Формат">Пара</td>
+                  <td data-label="Стоимость">1800 ₽</td>
                 </tr>
               </tbody>
             </table>
@@ -1111,7 +1090,7 @@
                 <li>Ежедневная практика речи.</li>
                 <li>Призы за выполнение миссий.</li>
               </ul>
-              <a href="#contact" class="btn-primary">Записать ребёнка на English Quest Week</a>
+              <a href="#contact" class="btn-primary" style="margin-top:1rem;">Записать ребёнка на English Quest Week</a>
             </div>
             <div class="trip-card">
               <div class="pill"><span class="pill-dot"></span> Для взрослых</div>
@@ -1126,32 +1105,7 @@
                 <li>Фокус на реальной речи и снятии страха, а не на идеальной грамматике.</li>
                 <li>Рекомендации, как продолжать путь после челленджа.</li>
               </ul>
-              <a href="#contact" class="btn-secondary">Участвовать в челлендже</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Кому подойдут занятия -->
-      <section id="forwhom">
-        <div class="container">
-          <h2 class="section-title">Кому подойдут занятия</h2>
-          <div class="grid grid-2">
-            <div class="card">
-              <h3 class="card-title">Родителям детей 4–11 лет</h3>
-              <p>Если вы хотите, чтобы ребёнок не просто «знал английский», а любил его и ждал уроков с интересом.</p>
-            </div>
-            <div class="card">
-              <h3 class="card-title">Подросткам</h3>
-              <p>Тем, кому нужна уверенность в общении и результат на экзаменах, но не хочется скучных занятий «ради галочки».</p>
-            </div>
-            <div class="card">
-              <h3 class="card-title">Взрослым</h3>
-              <p>Кто много раз начинал, боится говорить, но чувствует, что английский нужен для работы, путешествий и личной свободы.</p>
-            </div>
-            <div class="card">
-              <h3 class="card-title">Семьям за границей</h3>
-              <p>Если вы живёте в другой стране и хотите, чтобы ребёнок уверенно чувствовал себя в школе, на кружках и в международной среде.</p>
+              <a href="#contact" class="btn-secondary" style="margin-top:1rem;">Участвовать в челлендже</a>
             </div>
           </div>
         </div>
@@ -1165,7 +1119,7 @@
           <div class="reviews-grid">
             <div class="review-card">
               <div class="review-name">Марина, мама Захара (7 лет)</div>
-              <div class="review-meta">Формат: игровые онлайн-уроки</div>
+              <div class="review-meta">Игровой формат</div>
               <p>Добрый день! Как здорово, что у вас занятия проходят в таком игровом формате. Благодарю за видео! Захару будет вас не хватать — на ваши уроки он бежит с большим удовольствием.</p>
             </div>
             <div class="review-card">
@@ -1182,7 +1136,7 @@
         </div>
       </section>
 
-      <!-- Персональные данные -->
+      <!-- Политика обработки персональных данных -->
       <section id="privacy">
         <div class="container">
           <h2 class="section-title">Обработка персональных данных</h2>
@@ -1220,15 +1174,7 @@
             </details>
             <details>
               <summary>Что, если ребёнок стесняется и боится говорить?</summary>
-              <p>Это нормально. Я создаю безопасную атмосферу, где можно ошибаться. Мы начинаем с простых и понятных шагов, много играем и постепенно выходим на свободную речь.</p>
-            </details>
-            <details>
-              <summary>Можно ли отменить или перенести урок?</summary>
-              <p>Да, при своевременном предупреждении. Правила переноса и отмены я подробно отправляю перед началом занятий, чтобы нам обоим было комфортно планировать время.</p>
-            </details>
-            <details>
-              <summary>Как оплачиваются занятия?</summary>
-              <p>Обычно оплата происходит блоками от 4 занятий по предоплате. Формат и удобный способ оплаты (карта, переводы, для зарубежных учеников) обсуждаем индивидуально.</p>
+              <p>Это нормально. Я создаю безопасную атмосферу, где можно ошибаться. Начинаем с простых фраз, игр и поддерживающих реакций.</p>
             </details>
           </div>
         </div>
@@ -1238,48 +1184,53 @@
       <section id="contact" class="contact-section">
         <div class="container contact-inner">
           <div>
-            <h2 class="section-title">Записаться на урок или задать вопрос</h2>
+            <h2 class="section-title">Записаться на пробное занятие</h2>
             <p class="contact-lead">
-              Оставьте свои контакты и пару слов о себе или ребёнке — я свяжусь с вами, чтобы подобрать формат и время занятий.
-              Можно начать с пробного урока, English Quest Week или взрослого челленджа.
+              Напишите мне, и мы подберём формат, время и программу под ваш запрос. Можно оставить контакты в форме
+              или сразу написать в WhatsApp/Telegram.
             </p>
-            <div class="contact-meta">
-              <p><strong>Формат:</strong> онлайн-уроки, ученики — по всему миру.</p>
-              <p><strong>Контакты:</strong> WhatsApp: <a href="https://wa.me/79515155755">+7&nbsp;951&nbsp;515-57-55</a>,
-                Telegram-канал: <a href="https://t.me/EKSonline">t.me/EKSonline</a>,
-                e-mail: <a href="mailto:i@sresnikova.ru">i@sresnikova.ru</a>.
-              </p>
-            </div>
-          </div>
-          <div>
             <form>
               <div>
                 <label for="name">Имя</label>
-                <input type="text" id="name" name="name" placeholder="Например, Анна" />
+                <input id="name" type="text" placeholder="Как к вам обращаться?" />
               </div>
               <div>
-                <label for="who">Для кого занятия</label>
-                <select id="who" name="who">
-                  <option value="child">Ребёнок 4–6 лет</option>
-                  <option value="child7-11">Ребёнок 7–11 лет</option>
-                  <option value="teen">Подросток 12–17 лет</option>
-                  <option value="adult">Взрослый ученик</option>
-                  <option value="exam">Подготовка к экзамену</option>
-                  <option value="quest">English Quest Week</option>
-                  <option value="challenge">Челлендж для взрослых</option>
+                <label for="age">Возраст ученика</label>
+                <input id="age" type="text" placeholder="Например: 7 лет, 15 лет, взрослый" />
+              </div>
+              <div>
+                <label for="goal">Цель</label>
+                <select id="goal">
+                  <option>Выберите цель</option>
+                  <option>Игровой английский для ребёнка</option>
+                  <option>Поддержка школьной программы</option>
+                  <option>Подготовка к экзаменам</option>
+                  <option>Разговорный английский для путешествий</option>
+                  <option>Английский для работы</option>
+                  <option>Хочу просто заговорить без страха</option>
                 </select>
               </div>
               <div>
-                <label for="contact-field">Контакт</label>
-                <input type="text" id="contact-field" name="contact" placeholder="Телефон, WhatsApp или Telegram" />
+                <label for="contacts">Ваши контакты</label>
+                <textarea id="contacts" placeholder="Удобный способ связи: WhatsApp, Telegram, e-mail"></textarea>
               </div>
-              <div>
-                <label for="message">Пара слов о запросе</label>
-                <textarea id="message" name="message" placeholder="Возраст, уровень, цели занятий…"></textarea>
-              </div>
-              <button type="submit" class="btn-primary">Отправить заявку</button>
-              <p class="subtle">Нажимая на кнопку, вы соглашаетесь с условиями обработки персональных данных и правилами организации занятий.</p>
+              <button type="submit" class="btn-primary">Отправить запрос</button>
             </form>
+            <p class="contact-meta">
+              <strong>WhatsApp:</strong> <a href="https://wa.me/789515155755" target="_blank">8&nbsp;951&nbsp;515-57-55</a><br />
+              <strong>Telegram-канал:</strong> <a href="https://t.me/EKSonline" target="_blank">@EKSonline</a><br />
+              <strong>E-mail:</strong> <a href="mailto:i@sresnikova.ru">i@sresnikova.ru</a>
+            </p>
+          </div>
+          <div class="card">
+            <h3 class="card-title">Как проходит пробное занятие</h3>
+            <ul class="list">
+              <li>Знакомимся и создаём комфортную атмосферу.</li>
+              <li>Мягко проверяю текущий уровень, без стрессовых «проверок».</li>
+              <li>Пробуем формат: игра, мини-квест, разговор.</li>
+              <li>В конце обсуждаем впечатления и возможный план.</li>
+            </ul>
+            <p class="subtle">Пробное занятие — это всегда возможность почувствовать, «наш ли это формат».</p>
           </div>
         </div>
       </section>
@@ -1287,18 +1238,14 @@
 
     <footer>
       <div class="footer-inner">
-        <div>© <span id="year"></span> EKS Online · Светлана Резникова · онлайн-репетитор английского языка</div>
+        <div>© EKS Online, Светлана Резникова, 2025</div>
         <div class="socials">
-          <a href="https://wa.me/79515155755" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-          <a href="https://t.me/EKSonline" target="_blank" rel="noopener noreferrer">Telegram</a>
-          <a href="mailto:i@sresnikova.ru">i@sresnikova.ru</a>
+          <a href="https://t.me/EKSonline" target="_blank">Telegram</a>
+          <a href="https://wa.me/789515155755" target="_blank">WhatsApp</a>
+          <a href="mailto:i@sresnikova.ru">E-mail</a>
         </div>
       </div>
     </footer>
   </div>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
