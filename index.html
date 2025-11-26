@@ -2,59 +2,21 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EKS Online — репетитор английского языка онлайн</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="EKS Online — онлайн-уроки английского для детей, подростков и взрослых. Светлана Резникова, 15 лет опыта, 2000+ учеников, игровой формат, подготовка к экзаменам, квесты и челленджи." />
-/* --- ФИКС ЛОГОТИПА, ЧТОБЫ ОН ВСЕГДА БЫЛ ИДЕАЛЬНЫМ КРУГОМ --- */
-.logo-mark {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  flex: 0 0 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-/* На очень маленьких экранах чуть уменьшаем, но оставляем круг */
-@media (max-width: 600px) {
-  .logo-mark {
-    width: 40px;
-    height: 40px;
-    flex-basis: 40px;
-  }
-}
-
-/* --- ФИКС ТЕКСТА В БОЛЬШОМ КРУГЕ --- */
-/* здесь важно, что текст сидит внутри .hero-orbit-inner
-   (или .hero-circle-text — на всякий случай добавила оба селектора) */
-
-.hero-orbit-inner,
-.hero-circle-text {
-  font-size: 1.15rem;      /* чуть крупнее */
-  line-height: 1.35;       /* плотнее строки, но всё ещё читаемо */
-  color: #ffffff;          /* ярко-белый текст */
-  text-shadow: 0 0 12px rgba(0, 0, 0, 0.45); /* лёгкое свечение для контраста */
-  font-weight: 600;
-}
-
-@media (max-width: 600px) {
-  .hero-orbit-inner,
-  .hero-circle-text {
-    font-size: 1.05rem;    /* на телефоне — немного меньше, но всё равно заметно */
-  }
-}
   <style>
     :root {
-      --bg-deep: #050b49;
-      --bg-soft: #1a208f;
+      --bg-deep: #050a4a;
+      --bg-soft: #222b9a;
       --accent-gold: #f4b93b;
       --accent-gold-soft: #ffdea3;
       --accent-orange: #ff9f4a;
       --text-main: #f8f5ef;
       --text-muted: #c7c5d6;
-      --card-bg: #141c78;
-      --border-soft: rgba(244, 185, 59, 0.35);
+      --card-bg: #151f7e;
+      --border-soft: rgba(244, 185, 59, 0.38);
       --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
     }
 
@@ -66,10 +28,9 @@
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top left, #4a5cff 0, var(--bg-deep) 40%, #020321 100%);
+      background: radial-gradient(circle at top left, #3a4bff 0, var(--bg-deep) 40%, #02032a 100%);
       color: var(--text-main);
       line-height: 1.5;
-      font-size: 15px;
       scroll-behavior: smooth;
     }
 
@@ -79,14 +40,19 @@
       letter-spacing: 0.02em;
     }
 
+    h1 {
+      font-size: clamp(1.9rem, 2.6vw + 1.1rem, 2.6rem);
+      line-height: 1.22;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      line-height: 1.2;
+    }
+
     a {
       color: inherit;
       text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
     }
 
     .page {
@@ -100,15 +66,15 @@
       inset-inline: 0;
       top: 0;
       z-index: 100;
-      background: linear-gradient(90deg, rgba(3, 9, 59, 0.97), rgba(5, 13, 72, 0.97));
+      background: linear-gradient(90deg, rgba(2, 11, 61, 0.98), rgba(5, 13, 65, 0.96));
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(244, 185, 59, 0.2);
+      border-bottom: 1px solid rgba(244, 185, 59, 0.18);
     }
 
     .nav-inner {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 0.65rem 1.25rem;
+      padding: 0.7rem 1.25rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -122,8 +88,9 @@
     }
 
     .logo-mark {
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
+      flex: 0 0 44px;
       border-radius: 50%;
       background: radial-gradient(circle at 30% 20%, var(--accent-gold-soft), var(--accent-gold) 40%, #020b3d 100%);
       border: 2px solid var(--accent-gold);
@@ -132,13 +99,13 @@
       justify-content: center;
       font-family: "Playfair Display", serif;
       font-weight: 700;
-      font-size: 0.95rem;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+      font-size: 1rem;
+      color: #3a2504;
     }
 
     .logo-text-main {
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       text-transform: uppercase;
     }
 
@@ -151,7 +118,7 @@
       display: flex;
       list-style: none;
       gap: 1.25rem;
-      font-size: 0.88rem;
+      font-size: 0.9rem;
     }
 
     nav a {
@@ -179,12 +146,12 @@
     }
 
     main {
-      padding-top: 70px;
+      padding-top: 74px;
     }
 
     section {
-      padding: 4.25rem 1.25rem;
-      background: radial-gradient(circle at top, rgba(255, 222, 163, 0.06), transparent 60%);
+      padding: 4.2rem 1.25rem;
+      background: radial-gradient(circle at top, rgba(255, 222, 163, 0.07), transparent 60%);
     }
 
     .container {
@@ -192,56 +159,44 @@
       margin: 0 auto;
     }
 
-    /* BUTTONS & ANIMATIONS */
+    /* BUTTONS */
 
     .btn-primary,
     .btn-secondary {
       border-radius: 999px;
       padding: 0.7rem 1.6rem;
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       font-weight: 500;
       cursor: pointer;
       border: 1px solid transparent;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease, background 0.2s ease;
+      transition: all 0.22s ease;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 0.35rem;
+      white-space: nowrap;
     }
 
     .btn-primary {
       background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange));
       color: #211403;
-      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.55);
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.75);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.7);
       filter: brightness(1.03);
     }
 
     .btn-secondary {
       background: transparent;
-      border-color: rgba(244, 185, 59, 0.75);
+      border-color: rgba(244, 185, 59, 0.7);
       color: var(--accent-gold-soft);
     }
 
     .btn-secondary:hover {
-      background: rgba(12, 18, 88, 0.95);
-    }
-
-    .fade-in {
-      opacity: 0;
-      transform: translateY(12px);
-      animation: fadeUp 0.7s ease forwards;
-    }
-
-    @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      background: rgba(10, 15, 80, 0.9);
     }
 
     /* HERO */
@@ -249,8 +204,8 @@
     .hero {
       position: relative;
       overflow: hidden;
-      padding-top: 5rem;
-      padding-bottom: 4rem;
+      padding-top: 4.8rem;
+      padding-bottom: 4.2rem;
     }
 
     .hero::before {
@@ -258,9 +213,9 @@
       position: absolute;
       inset: -40%;
       background:
-        radial-gradient(circle at 20% 20%, rgba(244, 185, 59, 0.18), transparent 60%),
-        radial-gradient(circle at 80% 10%, rgba(244, 185, 59, 0.16), transparent 60%),
-        radial-gradient(circle at 40% 100%, rgba(255, 135, 60, 0.22), transparent 65%);
+        radial-gradient(circle at 20% 20%, rgba(244, 185, 59, 0.2), transparent 55%),
+        radial-gradient(circle at 80% 10%, rgba(244, 185, 59, 0.18), transparent 60%),
+        radial-gradient(circle at 40% 100%, rgba(255, 135, 60, 0.28), transparent 60%);
       opacity: 0.9;
       pointer-events: none;
     }
@@ -268,29 +223,24 @@
     .hero-inner {
       position: relative;
       display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-      gap: 2.8rem;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+      gap: 3.1rem;
       align-items: center;
     }
 
     .eyebrow {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.13em;
       color: var(--accent-gold-soft);
-      margin-bottom: 0.7rem;
-    }
-
-    .hero h1 {
-      font-size: clamp(1.9rem, 2.7vw, 2.4rem);
-      line-height: 1.25;
-      margin-bottom: 0.85rem;
+      margin-bottom: 0.9rem;
     }
 
     .hero-lead {
       font-size: 0.95rem;
       color: var(--text-muted);
       max-width: 30rem;
+      margin-top: 1.1rem;
       margin-bottom: 1.5rem;
     }
 
@@ -302,11 +252,11 @@
     }
 
     .badge {
-      padding: 0.3rem 0.7rem;
+      padding: 0.28rem 0.7rem;
       border-radius: 999px;
       border: 1px solid rgba(244, 185, 59, 0.45);
       font-size: 0.78rem;
-      background: rgba(2, 10, 60, 0.8);
+      background: rgba(2, 10, 60, 0.76);
     }
 
     .hero-cta {
@@ -314,12 +264,13 @@
       flex-wrap: wrap;
       gap: 0.75rem;
       align-items: center;
+      margin-bottom: 0.6rem;
     }
 
     .hero-note {
       font-size: 0.8rem;
       color: var(--text-muted);
-      margin-top: 0.4rem;
+      max-width: 26rem;
     }
 
     .hero-visual {
@@ -327,55 +278,59 @@
       justify-self: center;
       max-width: 360px;
       width: 100%;
-      animation: fadeUp 0.7s ease 0.1s forwards;
     }
 
     .hero-photo {
       width: 100%;
       border-radius: 22px;
-      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.75);
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.7);
       object-fit: cover;
-      margin-bottom: 1.3rem;
+      margin-bottom: 1.5rem;
+      display: block;
     }
 
-    .hero-orbit {
+    .hero-circle-wrapper {
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-circle {
       position: relative;
-      width: 100%;
-      aspect-ratio: 1 / 1;
+      width: min(320px, 68vw);
+      height: min(320px, 68vw);
       border-radius: 50%;
       background:
-        radial-gradient(circle at 30% 0%, rgba(255, 255, 255, 0.55), transparent 58%),
-        radial-gradient(circle at 70% 80%, rgba(244, 185, 59, 0.8), transparent 70%),
-        radial-gradient(circle at 10% 90%, rgba(64, 83, 255, 0.6), transparent 70%);
-      box-shadow: var(--shadow-soft);
+        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.35), transparent 55%),
+        radial-gradient(circle at 60% 90%, rgba(255, 159, 74, 0.55), rgba(1, 5, 40, 1));
+      box-shadow: 0 28px 65px rgba(0, 0, 0, 0.78);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 1.6rem;
+      padding: 1.5rem;
     }
 
-    .hero-orbit-inner {
+    .hero-circle-text {
       text-align: center;
-      max-width: 85%;
-      color: #fff;
       font-family: "Playfair Display", serif;
-      font-size: 1rem;
-      line-height: 1.45;
-      text-shadow: 0 0 12px rgba(0, 0, 0, 0.55);
+      font-size: 1.18rem;
+      line-height: 1.35;
+      color: #ffffff;
+      text-shadow: 0 0 12px rgba(0, 0, 0, 0.45);
+      font-weight: 600;
     }
 
-    /* GENERIC SECTION STYLES */
+    /* GENERIC BLOCKS */
 
     .section-title {
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
+      font-size: 1.7rem;
+      margin-bottom: 1.1rem;
     }
 
     .section-intro {
-      max-width: 34rem;
+      max-width: 32rem;
       color: var(--text-muted);
-      margin-bottom: 1.9rem;
-      font-size: 0.95rem;
+      margin-bottom: 2rem;
+      font-size: 0.94rem;
     }
 
     .grid {
@@ -383,26 +338,25 @@
       gap: 1.5rem;
     }
 
-    .grid-2 {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
     .grid-3 {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .card {
       background:
-        radial-gradient(circle at top left, rgba(244, 185, 59, 0.14), transparent 55%),
-        radial-gradient(circle at bottom right, rgba(255, 222, 163, 0.18), transparent 60%),
-        var(--card-bg);
+        radial-gradient(circle at top left, rgba(244, 185, 59, 0.18), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(255, 222, 163, 0.2), transparent 60%),
+        #151f7e;
       border-radius: 18px;
-      padding: 1.4rem 1.5rem;
+      padding: 1.45rem 1.6rem;
       border: 1px solid var(--border-soft);
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
       position: relative;
       overflow: hidden;
-      animation: fadeUp 0.7s ease forwards;
     }
 
     .card::after {
@@ -421,21 +375,22 @@
     }
 
     .card-title {
-      font-size: 1rem;
+      font-size: 1.03rem;
       margin-bottom: 0.5rem;
     }
 
     .card p {
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       color: var(--text-muted);
     }
 
-    .about-img,
     .kids-img,
-    .promo-img {
+    .promo-img,
+    .about-img {
       width: 100%;
-      border-radius: 16px;
-      margin-bottom: 1rem;
+      display: block;
+      border-radius: 14px;
+      margin-bottom: 0.9rem;
       object-fit: cover;
     }
 
@@ -463,16 +418,19 @@
     .tagline {
       font-style: italic;
       color: var(--accent-gold-soft);
-      margin-top: 0.7rem;
+      margin-top: 0.75rem;
       font-size: 0.9rem;
     }
 
-    /* WHY SECTION IMAGES */
+    /* WHY BLOCK – ДОБАВЛЕНЫ КАРТИНКИ */
 
     .why-img {
-      border-radius: 14px;
       margin-bottom: 0.9rem;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+      border-radius: 14px;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      display: block;
     }
 
     /* PRICING */
@@ -481,16 +439,16 @@
       border-radius: 20px;
       border: 1px solid var(--border-soft);
       background:
-        radial-gradient(circle at top left, rgba(255, 222, 163, 0.08), transparent 60%),
-        rgba(1, 5, 40, 0.93);
+        radial-gradient(circle at top left, rgba(255, 222, 163, 0.09), transparent 60%),
+        rgba(3, 7, 48, 0.96);
       box-shadow: var(--shadow-soft);
       overflow: hidden;
-      margin-bottom: 2.2rem;
+      margin-bottom: 2.1rem;
     }
 
     .pricing-header {
-      padding: 1.1rem 1.3rem;
-      border-bottom: 1px solid rgba(244, 185, 59, 0.3);
+      padding: 1.1rem 1.4rem;
+      border-bottom: 1px solid rgba(244, 185, 59, 0.32);
       background: linear-gradient(120deg, rgba(244, 185, 59, 0.16), transparent);
       display: flex;
       flex-wrap: wrap;
@@ -508,20 +466,20 @@
       color: var(--text-muted);
     }
 
-    .table-wrapper {
+    .pricing-scroll {
       width: 100%;
       overflow-x: auto;
     }
 
     table {
       width: 100%;
-      min-width: 640px;
       border-collapse: collapse;
       font-size: 0.86rem;
+      min-width: 520px; /* чтобы была горизонтальная прокрутка на телефоне */
     }
 
     th, td {
-      padding: 0.7rem 1rem;
+      padding: 0.7rem 0.9rem;
       text-align: left;
     }
 
@@ -532,21 +490,15 @@
       color: var(--accent-gold-soft);
       letter-spacing: 0.08em;
       border-bottom: 1px solid rgba(244, 185, 59, 0.3);
-      background: rgba(9, 15, 80, 0.95);
-      white-space: nowrap;
+      background: rgba(9, 15, 80, 0.9);
     }
 
     tr:nth-child(even) td {
-      background: rgba(5, 10, 60, 0.92);
+      background: rgba(5, 10, 60, 0.9);
     }
 
     tr:nth-child(odd) td {
-      background: rgba(3, 7, 38, 0.96);
-    }
-
-    td:nth-child(3),
-    td:nth-child(4) {
-      white-space: nowrap;
+      background: rgba(3, 7, 38, 0.95);
     }
 
     .subtle {
@@ -557,46 +509,35 @@
 
     /* TRIPWIRES */
 
-    #tripwires {
-      padding-top: 3.5rem;
-    }
-
     .tripwires {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.5rem;
+      gap: 1.6rem;
     }
 
     .trip-card {
       border-radius: 18px;
-      padding: 1.4rem 1.5rem 1.6rem;
+      padding: 1.5rem 1.6rem;
       border: 1px solid rgba(244, 185, 59, 0.7);
       background:
-        radial-gradient(circle at top, rgba(244, 185, 59, 0.11), transparent 60%),
-        rgba(6, 10, 60, 0.98);
-      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.75);
+        radial-gradient(circle at top, rgba(244, 185, 59, 0.12), transparent 60%),
+        rgba(6, 10, 60, 0.97);
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.78);
       display: flex;
       flex-direction: column;
-    }
-
-    .trip-card-inner {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 100%;
-      gap: 1rem;
+      gap: 0.7rem;
     }
 
     .trip-title {
-      font-size: 1.05rem;
-      margin-bottom: 0.4rem;
+      font-size: 1.1rem;
+      margin-top: 0.4rem;
     }
 
     .trip-price {
       font-weight: 600;
       color: var(--accent-gold);
-      margin-bottom: 0.4rem;
-      font-size: 0.92rem;
+      margin-bottom: 0.3rem;
+      font-size: 0.94rem;
     }
 
     .trip-card p {
@@ -604,16 +545,21 @@
       color: var(--text-muted);
     }
 
+    .trip-card .btn-primary,
+    .trip-card .btn-secondary {
+      margin-top: auto;
+      align-self: flex-start;
+    }
+
     .pill {
       display: inline-flex;
       align-items: center;
-      padding: 0.33rem 0.8rem;
+      padding: 0.3rem 0.8rem;
       border-radius: 999px;
-      border: 1px solid rgba(244, 185, 59, 0.6);
+      border: 1px solid rgba(244, 185, 59, 0.5);
       font-size: 0.78rem;
       color: var(--accent-gold-soft);
       gap: 0.4rem;
-      margin-bottom: 0.7rem;
     }
 
     .pill-dot {
@@ -635,7 +581,7 @@
       background: rgba(6, 10, 60, 0.96);
       border-radius: 16px;
       padding: 1.3rem 1.4rem;
-      border: 1px solid rgba(244, 185, 59, 0.3);
+      border: 1px solid rgba(244, 185, 59, 0.32);
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
       font-size: 0.9rem;
       color: var(--text-muted);
@@ -661,10 +607,10 @@
     }
 
     details {
-      background: rgba(5, 10, 56, 0.95);
+      background: rgba(5, 10, 56, 0.94);
       border-radius: 14px;
       padding: 0.85rem 1rem;
-      border: 1px solid rgba(244, 185, 59, 0.25);
+      border: 1px solid rgba(244, 185, 59, 0.28);
     }
 
     summary {
@@ -700,9 +646,9 @@
       position: relative;
       overflow: hidden;
       background:
-        radial-gradient(circle at 15% 0, rgba(244, 185, 59, 0.16), transparent 55%),
+        radial-gradient(circle at 15% 0, rgba(244, 185, 59, 0.14), transparent 55%),
         radial-gradient(circle at 85% 100%, rgba(244, 185, 59, 0.22), transparent 60%),
-        #050b3b;
+        #050b39;
     }
 
     .contact-section::before {
@@ -710,7 +656,7 @@
       position: absolute;
       inset: -30%;
       background:
-        radial-gradient(circle at 10% 30%, rgba(255, 222, 163, 0.16), transparent 55%),
+        radial-gradient(circle at 10% 30%, rgba(255, 222, 163, 0.15), transparent 55%),
         radial-gradient(circle at 90% 30%, rgba(255, 159, 74, 0.2), transparent 55%);
       opacity: 0.7;
       pointer-events: none;
@@ -718,21 +664,26 @@
 
     .contact-inner {
       position: relative;
-      max-width: 960px;
+      max-width: 900px;
       margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 2rem;
+    }
+
+    .contact-inner > div:first-child {
+      max-width: 32rem;
     }
 
     .contact-lead {
       font-size: 0.94rem;
       color: var(--text-muted);
-      margin-bottom: 1.3rem;
-      max-width: 32rem;
+      margin-bottom: 1.2rem;
     }
 
     form {
       display: grid;
-      gap: 0.85rem;
-      max-width: 600px;
+      gap: 0.8rem;
     }
 
     label {
@@ -746,7 +697,7 @@
       margin-top: 0.3rem;
       border-radius: 12px;
       border: 1px solid rgba(244, 185, 59, 0.4);
-      padding: 0.55rem 0.7rem;
+      padding: 0.55rem 0.75rem;
       background: rgba(3, 6, 40, 0.96);
       color: var(--text-main);
       font-size: 0.9rem;
@@ -760,7 +711,7 @@
     }
 
     textarea {
-      min-height: 85px;
+      min-height: 90px;
       resize: vertical;
     }
 
@@ -768,14 +719,11 @@
       font-size: 0.86rem;
       color: var(--text-muted);
       margin-top: 1rem;
-      line-height: 1.6;
     }
 
     .contact-meta strong {
       color: var(--accent-gold-soft);
     }
-
-    /* FOOTER */
 
     footer {
       padding: 1.4rem 1.25rem 2rem;
@@ -806,6 +754,28 @@
       border-bottom: 1px dotted rgba(244, 185, 59, 0.4);
     }
 
+    /* SIMPLE FADE ANIMATIONS */
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .fade-in-delay {
+      opacity: 0;
+      transform: translateY(18px);
+      animation: fadeInUp 0.9s ease forwards;
+      animation-delay: 0.15s;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     /* RESPONSIVE */
 
     @media (max-width: 900px) {
@@ -818,8 +788,8 @@
       }
 
       .hero-inner,
-      .grid-2,
       .grid-3,
+      .grid-2,
       .tripwires,
       .reviews-grid {
         grid-template-columns: minmax(0, 1fr);
@@ -829,16 +799,16 @@
         padding-top: 4.2rem;
       }
 
-      .hero-inner {
-        gap: 2.4rem;
-      }
-
       .hero-visual {
         max-width: 320px;
       }
 
-      .section-title {
-        font-size: 1.45rem;
+      .pricing-table {
+        margin-inline: -0.5rem;
+      }
+
+      .contact-inner {
+        grid-template-columns: minmax(0, 1fr);
       }
     }
 
@@ -855,531 +825,534 @@
         padding-inline: 1rem;
       }
 
+      .hero-lead {
+        font-size: 0.9rem;
+      }
+
+      .hero-circle-text {
+        font-size: 1.05rem;
+      }
+
       .pricing-header {
         padding-inline: 1.1rem;
       }
 
       th, td {
-        padding-inline: 0.7rem;
-      }
-
-      .hero-badges {
-        gap: 0.4rem;
-      }
-
-      .hero h1 {
-        font-size: 1.7rem;
-      }
-
-      .hero-lead {
-        font-size: 0.92rem;
+        padding-inline: 0.65rem;
       }
     }
   </style>
 </head>
 <body>
-<div class="page">
-  <header>
-    <div class="nav-inner">
-      <a href="#hero" class="logo-block">
-        <div class="logo-mark">EKS</div>
-        <div>
-          <div class="logo-text-main">EKS ONLINE</div>
-          <div class="logo-text-sub">Английский, который любят дети</div>
-        </div>
-      </a>
-      <nav aria-label="Главная навигация">
-        <ul>
-          <li><a href="#why">Почему EKS</a></li>
-          <li><a href="#about">О преподавателе</a></li>
-          <li><a href="#programs">Программы</a></li>
-          <li><a href="#pricing">Тарифы</a></li>
-          <li><a href="#tripwires">Квесты и челленджи</a></li>
-          <li><a href="#privacy">Персональные данные</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#contact">Контакты</a></li>
-        </ul>
-      </nav>
-      <a href="#contact" class="btn-secondary nav-cta">Записаться</a>
-    </div>
-  </header>
-
-  <main>
-    <!-- HERO -->
-    <section id="hero" class="hero">
-      <div class="container hero-inner">
-        <div class="fade-in">
-          <div class="eyebrow">Онлайн-уроки английского для детей и взрослых</div>
-          <h1>EKS Online — английский, который дети действительно любят.</h1>
-          <p class="hero-lead">
-            Здесь уроки превращаются в увлекательное приключение, а каждый ребёнок становится героем своей языковой истории.
-            Мы учим через игру, эмоции, движение и живое общение — без скуки, стресса и зубрёжки.
-          </p>
-          <div class="hero-badges">
-            <span class="badge">15+ лет преподавания</span>
-            <span class="badge">2000+ учеников по всему миру</span>
-            <span class="badge">Сертификаты TKT и CELT-P</span>
-            <span class="badge">Формат: онлайн</span>
-          </div>
-          <div class="hero-cta">
-            <a href="#contact" class="btn-primary">Записаться на пробное занятие</a>
-            <a href="#tripwires" class="btn-secondary">Попробовать квест или челлендж</a>
-          </div>
-          <p class="hero-note">Онлайн-уроки для детей от 4 лет, подростков и взрослых. Подготовка к экзаменам и помощь тем, кто боится говорить.</p>
-        </div>
-
-        <div class="hero-visual">
-          <img src="me.jpg" alt="Светлана Резникова, преподаватель английского" class="hero-photo" />
-          <div class="hero-orbit">
-            <div class="hero-orbit-inner">
-              Ты уже совершенство.<br />
-              Я ограняю до бриллианта.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- WHY -->
-    <section id="why">
-      <div class="container">
-        <h2 class="section-title">Почему дети любят английский в EKS Online</h2>
-        <p class="section-intro">
-          В EKS Online дети приходят не «на урок», а в историю, где английский — язык приключений, эмоций и открытий.
-          Взрослые находят здесь безопасное пространство, чтобы наконец-то заговорить без стеснения.
-        </p>
-
-        <div class="grid grid-3">
-          <div class="card">
-            <img src="kids.jpg" alt="Дети на онлайн-уроке" class="why-img" />
-            <h3 class="card-title">Онлайн-уроки как квест</h3>
-            <p>Игровые задания, миссии и истории — ребёнок проходит квест, а не «сидит на занятии».</p>
-          </div>
-
-          <div class="card">
-            <img src="motion.jpg" alt="Дети двигаются и повторяют движения под песню" class="why-img" />
-            <h3 class="card-title">Через эмоции и движение</h3>
-            <p>Живые диалоги, мимика, движение, творческие задания — английский становится частью реальной жизни.</p>
-          </div>
-
-          <div class="card">
-            <img src="cartoon.jpg" alt="Дети смотрят мультфильм на английском" class="why-img" />
-            <h3 class="card-title">Через общение</h3>
-            <p>С первого урока ученики говорят по-английски: обсуждаем любимые мультфильмы, игры, мечты, а не только учебник.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about">
-      <div class="container">
-        <div class="grid grid-2">
+  <div class="page">
+    <header>
+      <div class="nav-inner">
+        <a href="#hero" class="logo-block">
+          <div class="logo-mark">EKS</div>
           <div>
-            <h2 class="section-title">Я — Светлана Резникова</h2>
-            <p class="section-intro">
-              Преподаватель английского языка с 15-летним опытом и автор проекта EKS Online.
-              За это время я помогла более чем 2000 детям, подросткам и взрослым по-настоящему заговорить по-английски — с интересом и без ощущения «я не умею».
+            <div class="logo-text-main">EKS ONLINE</div>
+            <div class="logo-text-sub">Английский, который любят дети</div>
+          </div>
+        </a>
+        <nav aria-label="Главная навигация">
+          <ul>
+            <li><a href="#why">Почему EKS</a></li>
+            <li><a href="#about">О преподавателе</a></li>
+            <li><a href="#programs">Программы</a></li>
+            <li><a href="#pricing">Тарифы</a></li>
+            <li><a href="#tripwires">Квесты и челленджи</a></li>
+            <li><a href="#privacy">Персональные данные</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Контакты</a></li>
+          </ul>
+        </nav>
+        <a href="#contact" class="btn-secondary nav-cta">Записаться</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section id="hero" class="hero">
+        <div class="container hero-inner">
+          <div class="fade-in">
+            <div class="eyebrow">Онлайн-уроки английского для детей и взрослых</div>
+            <h1>EKS Online — английский, который дети действительно любят.</h1>
+            <p class="hero-lead">
+              Здесь уроки превращаются в увлекательное приключение, а каждый ребёнок становится героем своей языковой истории.
+              Мы учим через игру, эмоции, движение и живое общение — без скуки, стресса и зубрёжки.
             </p>
-            <ul class="list">
-              <li>15+ лет преподавания английского языка офлайн и онлайн.</li>
-              <li>2000+ учеников по всему миру: от малышей до взрослых специалистов.</li>
-              <li>Кембриджские сертификаты <strong>TKT</strong> и <strong>CELT-P</strong>.</li>
-              <li>Собственная методика, основанная на игре, эмоциях и поддержке.</li>
-            </ul>
-            <p class="tagline"><strong>«Ты уже совершенство. Я ограняю до бриллианта.»</strong></p>
+            <div class="hero-badges">
+              <span class="badge">15+ лет преподавания</span>
+              <span class="badge">2000+ учеников по всему миру</span>
+              <span class="badge">Сертификаты TKT и CELT-P</span>
+              <span class="badge">Формат: онлайн</span>
+            </div>
+            <div class="hero-cta">
+              <a href="#contact" class="btn-primary">Записаться на пробное занятие</a>
+              <a href="#tripwires" class="btn-secondary">Попробовать квест или челлендж</a>
+            </div>
+            <p class="hero-note">
+              Онлайн-уроки для детей от 4 лет, подростков и взрослых. Подготовка к экзаменам и помощь тем, кто боится говорить.
+            </p>
           </div>
 
-          <div>
-            <div class="card">
-              <img src="kids.jpg" alt="Атмосфера уроков EKS Online" class="about-img" />
-              <h3 class="card-title">О подходе</h3>
-              <p>
-                Я создаю тёплую и безопасную атмосферу, в которой дети раскрываются, задают вопросы и не боятся ошибаться.
-                Взрослым помогаю мягко пройти через страх говорить и почувствовать уверенность в своих знаниях.
-              </p>
-              <p class="tagline">Онлайн-формат позволяет заниматься, где бы вы ни находились — дома, в поездке или за границей.</p>
+          <div class="hero-visual fade-in-delay" aria-hidden="true">
+            <img src="me.jpg" alt="Светлана Резникова, преподаватель английского" class="hero-photo" />
+            <div class="hero-circle-wrapper">
+              <div class="hero-circle">
+                <div class="hero-circle-text">
+                  Ты уже совершенство.<br />
+                  Я ограняю до бриллианта.
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- PROGRAMS -->
-    <section id="programs">
-      <div class="container">
-        <h2 class="section-title">Форматы и программы занятий</h2>
-        <p class="section-intro">Подбираю программу под возраст, уровень и цели: от игр с малышами до подготовки к экзаменам и разговорного английского для взрослых.</p>
-
-        <div class="grid grid-3">
-          <div class="card">
-            <h3 class="card-title">Дети 4–6 лет</h3>
-            <p>Короткие игровые уроки, много движения, песен и картинок. Главная цель — чтобы ребёнок полюбил английский и не боялся его.</p>
-            <ul class="list">
-              <li>Игровые мини-сюжеты и персонажи.</li>
-              <li>Развитие слуха и произношения.</li>
-              <li>Первые фразы и словарный запас.</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3 class="card-title">Дети 7–11 лет</h3>
-            <p>Квесты, истории, проекты, работа с видео и песнями. Помогаю подтянуть школьный английский и уверенно говорить на бытовые темы.</p>
-            <ul class="list">
-              <li>Работа с интересами ребёнка.</li>
-              <li>Поддержка школьной программы.</li>
-              <li>Развитие навыков аудирования и говорения.</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3 class="card-title">Подростки 12–17 лет</h3>
-            <p>Сильная база для экзаменов и реальной жизни: разбираем грамматику на живых примерах, много говорим и отрабатываем типичные задания.</p>
-            <ul class="list">
-              <li>Подготовка к ОГЭ и ЕГЭ.</li>
-              <li>Подготовка к собеседованиям и учёбе за рубежом.</li>
-              <li>Темы, близкие подросткам: музыка, планы, карьера.</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3 class="card-title">Взрослые</h3>
-            <p>Разговорный английский для жизни, путешествий, работы и переезда. Особый акцент на снятии языкового барьера.</p>
-            <ul class="list">
-              <li>Английский для путешествий и общения.</li>
-              <li>Подготовка к собеседованиям и работе с международными коллегами.</li>
-              <li>Мягкий старт для тех, кто «сто раз начинал».</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3 class="card-title">Экзамены</h3>
-            <p>Системная подготовка к школьным и международным экзаменам начального уровня.</p>
-            <ul class="list">
-              <li>Диагностика уровня и план подготовки.</li>
-              <li>Отработка форматов заданий.</li>
-              <li>Развитие уверенности и стрессоустойчивости.</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3 class="card-title">Индивидуальные цели</h3>
-            <p>Подберём формат под ваши задачи: переезд, смена работы, подготовка к собеседованию или поступлению в школу/ВУЗ.</p>
+      <!-- WHY -->
+      <section id="why">
+        <div class="container">
+          <h2 class="section-title">Почему дети любят английский в EKS Online</h2>
+          <p class="section-intro">
+            В EKS Online дети приходят не «на урок», а в историю, где английский — язык приключений, эмоций и открытий.
+            Взрослые находят здесь безопасное пространство, чтобы наконец-то заговорить без стеснения.
+          </p>
+          <div class="grid grid-3">
+            <div class="card">
+              <img src="kids.jpg" alt="Онлайн-уроки как квест" class="kids-img" />
+              <h3 class="card-title">Онлайн-уроки как квест</h3>
+              <p>Игровые задания, миссии и истории — ребёнок проходит квест, а не «сидит на занятии».</p>
+            </div>
+            <div class="card">
+              <img src="motion.jpg" alt="Дети двигаются и танцуют на уроке" class="why-img" />
+              <h3 class="card-title">Через эмоции и движение</h3>
+              <p>Живые диалоги, мимика, движение, творческие задания — английский становится частью реальной жизни, а не только учебника.</p>
+            </div>
+            <div class="card">
+              <img src="cartoon.jpg" alt="Дети смотрят мультфильм на английском" class="why-img" />
+              <h3 class="card-title">Через общение</h3>
+              <p>С первого урока ученики говорят по-английски. Обсуждаем мультфильмы, игры, мечты, а не только упражнения из тетради.</p>
+            </div>
+            <div class="card">
+              <h3 class="card-title">Без давления и зубрёжки</h3>
+              <p>Минимум сухой грамматики и «выучи правило», максимум практики в речи. Ошибаться — можно и нужно, это часть пути.</p>
+            </div>
+            <div class="card">
+              <h3 class="card-title">Атмосфера поддержки</h3>
+              <p>Каждый ребёнок чувствует себя важным, услышанным и принятым. Это даёт смелость говорить и пробовать новое.</p>
+            </div>
+            <div class="card">
+              <h3 class="card-title">Прозрачный прогресс</h3>
+              <p>Родители регулярно получают обратную связь: в чём сильные стороны ребёнка, что уже получается и над чем мы работаем дальше.</p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- PRICING -->
-    <section id="pricing">
-      <div class="container">
-        <h2 class="section-title">Тарифы и форматы занятий</h2>
-        <p class="section-intro">Стоимость зависит от возраста, формата и длительности занятия. Уроки онлайн, оплата помесячно или блоками от 4 занятий.</p>
-
-        <div class="pricing-table" aria-label="Индивидуальные занятия">
-          <div class="pricing-header">
-            <h3>Индивидуальные занятия онлайн (1 ученик)</h3>
-            <p class="pricing-note">Личное сопровождение, программа под ваши задачи и темп.</p>
-          </div>
-          <div class="table-wrapper">
-            <table>
-              <thead>
-              <tr>
-                <th>Возраст</th>
-                <th>Длительность</th>
-                <th>Формат</th>
-                <th>Стоимость</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr>
-                <td>Дети 4–6 лет</td>
-                <td>45 минут</td>
-                <td>Индивидуально</td>
-                <td>1400 ₽</td>
-              </tr>
-              <tr>
-                <td>Дети 7–11 лет</td>
-                <td>60 минут</td>
-                <td>Индивидуально</td>
-                <td>1800 ₽</td>
-              </tr>
-              <tr>
-                <td>Подростки 12–17 лет</td>
-                <td>60 минут</td>
-                <td>Индивидуально</td>
-                <td>2200 ₽</td>
-              </tr>
-              <tr>
-                <td>Взрослые</td>
-                <td>60 минут</td>
-                <td>Индивидуально</td>
-                <td>2500 ₽</td>
-              </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div class="pricing-table" aria-label="Занятия в парах">
-          <div class="pricing-header">
-            <h3>Занятия в парах (2 ученика)</h3>
-            <p class="pricing-note">Цена указана за одного ученика. Подбираю пары по возрасту и уровню.</p>
-          </div>
-          <div class="table-wrapper">
-            <table>
-              <thead>
-              <tr>
-                <th>Возраст</th>
-                <th>Длительность</th>
-                <th>Формат</th>
-                <th>Стоимость</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr>
-                <td>Дети 4–6 лет</td>
-                <td>45 минут</td>
-                <td>Пара</td>
-                <td>1000 ₽</td>
-              </tr>
-              <tr>
-                <td>Дети 7–11 лет</td>
-                <td>60 минут</td>
-                <td>Пара</td>
-                <td>1300 ₽</td>
-              </tr>
-              <tr>
-                <td>Подростки 12–17 лет</td>
-                <td>60 минут</td>
-                <td>Пара</td>
-                <td>1600 ₽</td>
-              </tr>
-              <tr>
-                <td>Взрослые</td>
-                <td>60 минут</td>
-                <td>Пара</td>
-                <td>1800 ₽</td>
-              </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <p class="subtle">* Актуальные цены и свободные слоты можно уточнить на консультации. Возможны пробные занятия и долгосрочные пакеты с фиксированной стоимостью.</p>
-      </div>
-    </section>
-
-    <!-- TRIPWIRES -->
-    <section id="tripwires">
-      <div class="container">
-        <h2 class="section-title">Мягкий старт: квесты и челленджи</h2>
-        <p class="section-intro">Если вы пока присматриваетесь, начните с короткого формата: ребёнок или взрослый «примерит» мой стиль, а вы увидите, подходит ли вам EKS Online.</p>
-
-        <div class="tripwires">
-          <div class="trip-card">
-            <div class="trip-card-inner">
-              <div>
-                <div class="pill"><span class="pill-dot"></span> Для детей</div>
-                <img src="week.jpg" alt="English Quest Week" class="promo-img" />
-                <h3 class="trip-title">English Quest Week</h3>
-                <div class="trip-price">990 ₽ · 7 игровых дней</div>
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="container">
+          <div class="grid grid-2">
+            <div>
+              <h2 class="section-title">Я — Светлана Резникова</h2>
+              <p class="section-intro">
+                Преподаватель английского языка с 15-летним опытом и автор проекта EKS Online.
+                За это время я помогла более чем 2000 детям, подросткам и взрослым по-настоящему заговорить по-английски —
+                с интересом и без ощущения «я не умею».
+              </p>
+              <ul class="list">
+                <li>15+ лет преподавания английского языка офлайн и онлайн.</li>
+                <li>2000+ учеников по всему миру: от малышей до взрослых специалистов.</li>
+                <li>Кембриджские сертификаты <strong>TKT</strong> и <strong>CELT-P</strong>.</li>
+                <li>Собственная методика, основанная на игре, эмоциях и поддержке.</li>
+              </ul>
+              <p class="tagline"><strong>«Ты уже совершенство. Я ограняю до бриллианта.»</strong></p>
+            </div>
+            <div>
+              <div class="card">
+                <img src="week.jpg" alt="English Quest Week" class="about-img" />
+                <h3 class="card-title">О подходе</h3>
                 <p>
-                  7 дней маленьких приключений на английском: задания, аудио, видео и мини-истории.
-                  Дети даже не понимают, что учатся — они проходят квест.
+                  Я создаю тёплую и безопасную атмосферу, в которой дети раскрываются, задают вопросы
+                  и не боятся ошибаться. Взрослым помогаю мягко пройти через страх говорить и почувствовать уверенность.
                 </p>
-                <ul class="list">
-                  <li>Короткие ежедневные задания.</li>
-                  <li>Задания в аудио/видео-формате.</li>
-                  <li>Ежедневная практика речи.</li>
-                  <li>Призы за выполнение миссий.</li>
-                </ul>
+                <p class="tagline">Онлайн-формат позволяет заниматься, где бы вы ни находились — дома, в поездке или за границей.</p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROGRAMS -->
+      <section id="programs">
+        <div class="container">
+          <h2 class="section-title">Форматы и программы занятий</h2>
+          <p class="section-intro">Подбираю программу под возраст, уровень и цели: от игр с малышами до подготовки к экзаменам и разговорного английского для взрослых.</p>
+          <div class="grid grid-3">
+            <div class="card">
+              <h3 class="card-title">Дети 4–6 лет</h3>
+              <p>Короткие игровые уроки, много движения, песен и картинок. Главная цель — чтобы ребёнок полюбил английский и не боялся его.</p>
+              <ul class="list">
+                <li>Игровые мини-сюжеты и персонажи.</li>
+                <li>Развитие слуха и произношения.</li>
+                <li>Первые фразы и словарный запас.</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3 class="card-title">Дети 7–11 лет</h3>
+              <p>Квесты, истории, проекты, работа с видео и песнями. Помогаю подтянуть школьный английский и уверенно говорить на бытовые темы.</p>
+              <ul class="list">
+                <li>Работа с интересами ребёнка.</li>
+                <li>Поддержка школьной программы.</li>
+                <li>Развитие навыков аудирования и говорения.</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3 class="card-title">Подростки 12–17 лет</h3>
+              <p>Сильная база для экзаменов и реальной жизни: разбираем грамматику на живых примерах, много говорим и отрабатываем типичные задания.</p>
+              <ul class="list">
+                <li>Подготовка к ОГЭ и ЕГЭ.</li>
+                <li>Подготовка к собеседованиям и учёбе за рубежом.</li>
+                <li>Темы, близкие подросткам: музыка, планы, карьера.</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3 class="card-title">Взрослые</h3>
+              <p>Разговорный английский для жизни, путешествий, работы и переезда. Особый акцент на снятии языкового барьера.</p>
+              <ul class="list">
+                <li>Английский для путешествий и общения.</li>
+                <li>Подготовка к собеседованиям и работе с международными коллегами.</li>
+                <li>Мягкий старт для тех, кто «сто раз начинал».</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3 class="card-title">Экзамены</h3>
+              <p>Системная подготовка к школьным и международным экзаменам начального уровня.</p>
+              <ul class="list">
+                <li>Диагностика уровня и план подготовки.</li>
+                <li>Отработка форматов заданий.</li>
+                <li>Развитие уверенности и стрессоустойчивости.</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3 class="card-title">Индивидуальные цели</h3>
+              <p>Подберём формат под ваши задачи: переезд, смена работы, подготовка к собеседованию или поступлению в школу/ВУЗ.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRICING -->
+      <section id="pricing">
+        <div class="container">
+          <h2 class="section-title">Тарифы и форматы занятий</h2>
+          <p class="section-intro">Стоимость зависит от возраста, формата и длительности занятия. Уроки онлайн, оплата помесячно или блоками от 4 занятий.</p>
+
+          <div class="pricing-table" aria-label="Индивидуальные занятия">
+            <div class="pricing-header">
+              <h3>Индивидуальные занятия онлайн (1 ученик)</h3>
+              <p class="pricing-note">Личное сопровождение, программа под ваши задачи и темп.</p>
+            </div>
+            <div class="pricing-scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Возраст</th>
+                    <th>Длительность</th>
+                    <th>Формат</th>
+                    <th>Стоимость</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Дети 4–6 лет</td>
+                    <td>45 минут</td>
+                    <td>Индивидуально</td>
+                    <td>1400 ₽</td>
+                  </tr>
+                  <tr>
+                    <td>Дети 7–11 лет</td>
+                    <td>60 минут</td>
+                    <td>Индивидуально</td>
+                    <td>1800 ₽</td>
+                  </tr>
+                  <tr>
+                    <td>Подростки 12–17 лет</td>
+                    <td>60 минут</td>
+                    <td>Индивидуально</td>
+                    <td>2200 ₽</td>
+                  </tr>
+                  <tr>
+                    <td>Взрослые</td>
+                    <td>60 минут</td>
+                    <td>Индивидуально</td>
+                    <td>2500 ₽</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="pricing-table" aria-label="Занятия в парах">
+            <div class="pricing-header">
+              <h3>Занятия в парах (2 ученика)</h3>
+              <p class="pricing-note">Цена указана за одного ученика. Подбираю пары по возрасту и уровню.</p>
+            </div>
+            <div class="pricing-scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Возраст</th>
+                    <th>Длительность</th>
+                    <th>Формат</th>
+                    <th>Стоимость</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Дети 4–6 лет</td>
+                    <td>45 минут</td>
+                    <td>Пара</td>
+                    <td>1000 ₽</td>
+                  </tr>
+                  <tr>
+                    <td>Дети 7–11 лет</td>
+                    <td>60 минут</td>
+                    <td>Пара</td>
+                    <td>1300 ₽</td>
+                  </tr>
+                  <tr>
+                    <td>Подростки 12–17 лет</td>
+                    <td>60 минут</td>
+                    <td>Пара</td>
+                    <td>1600 ₽</td>
+                  </tr>
+                  <tr>
+                    <td>Взрослые</td>
+                    <td>60 минут</td>
+                    <td>Пара</td>
+                    <td>1800 ₽</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <p class="subtle">* Актуальные цены и свободные слоты можно уточнить на консультации. Возможны пробные занятия и долгосрочные пакеты с фиксированной стоимостью.</p>
+        </div>
+      </section>
+
+      <!-- TRIPWIRES -->
+      <section id="tripwires">
+        <div class="container">
+          <h2 class="section-title">Мягкий старт: квесты и челленджи</h2>
+          <p class="section-intro">Если вы пока присматриваетесь, начните с короткого формата: ребёнок или взрослый «примерит» мой стиль, а вы увидите, подходит ли вам EKS Online.</p>
+          <div class="tripwires">
+            <div class="trip-card">
+              <div class="pill"><span class="pill-dot"></span> Для детей</div>
+              <img src="week.jpg" alt="English Quest Week" class="promo-img" />
+              <h3 class="trip-title">English Quest Week</h3>
+              <div class="trip-price">990 ₽ · 7 игровых дней</div>
+              <p>
+                7 дней маленьких приключений на английском: задания, аудио, видео и мини-истории.
+                Дети даже не понимают, что учатся — они проходят квест.
+              </p>
+              <ul class="list">
+                <li>Короткие ежедневные задания.</li>
+                <li>Задания в аудио/видео-формате.</li>
+                <li>Ежедневная практика речи.</li>
+                <li>Призы за выполнение миссий.</li>
+              </ul>
               <a href="#contact" class="btn-primary">Записать ребёнка на English Quest Week</a>
             </div>
-          </div>
 
-          <div class="trip-card">
-            <div class="trip-card-inner">
-              <div>
-                <div class="pill"><span class="pill-dot"></span> Для взрослых</div>
-                <img src="30days.jpg" alt="Челлендж 30 дней" class="promo-img" />
-                <h3 class="trip-title">Челлендж «30 дней: прокачай свой английский»</h3>
-                <div class="trip-price">1490 ₽ · 30-дневный онлайн-челлендж</div>
-                <p>
-                  Формат для тех, кто «учил, но боится говорить». Короткие задания на каждый день, поддержка и видимый прогресс.
-                </p>
-                <ul class="list">
-                  <li>Ежедневные небольшие шаги, которые легко встроить в график.</li>
-                  <li>Фокус на реальной речи и снятии страха, а не на идеальной грамматике.</li>
-                  <li>Рекомендации, как продолжать путь после челленджа.</li>
-                </ul>
-              </div>
+            <div class="trip-card">
+              <div class="pill"><span class="pill-dot"></span> Для взрослых</div>
+              <img src="30days.jpg" alt="Челлендж 30 дней — прокачай свой английский" class="promo-img" />
+              <h3 class="trip-title">Челлендж «30 дней: прокачай свой английский»</h3>
+              <div class="trip-price">1490 ₽ · 30-дневный онлайн-челлендж</div>
+              <p>
+                Формат для тех, кто «учил, но боится говорить». Короткие задания на каждый день, поддержка и видимый прогресс.
+              </p>
+              <ul class="list">
+                <li>Ежедневные небольшие шаги, которые легко встроить в график.</li>
+                <li>Фокус на реальной речи и снятии страха, а не на идеальной грамматике.</li>
+                <li>Рекомендации, как продолжать путь после челленджа.</li>
+              </ul>
               <a href="#contact" class="btn-secondary">Участвовать в челлендже</a>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- FOR WHOM -->
-    <section id="forwhom">
-      <div class="container">
-        <h2 class="section-title">Кому подойдут занятия</h2>
-        <div class="grid grid-2">
-          <div class="card">
-            <h3 class="card-title">Родителям детей 4–11 лет</h3>
-            <p>Если вы хотите, чтобы ребёнок не просто «знал английский», а любил его и ждал уроков с интересом.</p>
-          </div>
-          <div class="card">
-            <h3 class="card-title">Подросткам</h3>
-            <p>Тем, кому нужна уверенность в общении и результат на экзаменах, но не хочется скучных занятий «ради галочки».</p>
-          </div>
-          <div class="card">
-            <h3 class="card-title">Взрослым</h3>
-            <p>Кто много раз начинал, боится говорить, но чувствует, что английский нужен для работы, путешествий и личной свободы.</p>
-          </div>
-          <div class="card">
-            <h3 class="card-title">Семьям за границей</h3>
-            <p>Если вы живёте в другой стране и хотите, чтобы ребёнок уверенно чувствовал себя в школе, на кружках и в международной среде.</p>
+      <!-- FOR WHOM -->
+      <section id="forwhom">
+        <div class="container">
+          <h2 class="section-title">Кому подойдут занятия</h2>
+          <div class="grid grid-2">
+            <div class="card">
+              <h3 class="card-title">Родителям детей 4–11 лет</h3>
+              <p>Если вы хотите, чтобы ребёнок не просто «знал английский», а любил его и ждал уроков с интересом.</p>
+            </div>
+            <div class="card">
+              <h3 class="card-title">Подросткам</h3>
+              <p>Тем, кому нужна уверенность в общении и результат на экзаменах, но не хочется скучных занятий «ради галочки».</p>
+            </div>
+            <div class="card">
+              <h3 class="card-title">Взрослым</h3>
+              <p>Кто много раз начинал, боится говорить, но чувствует, что английский нужен для работы, путешествий и личной свободы.</p>
+            </div>
+            <div class="card">
+              <h3 class="card-title">Семьям за границей</h3>
+              <p>Если вы живёте в другой стране и хотите, чтобы ребёнок уверенно чувствовал себя в школе, на кружках и в международной среде.</p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- REVIEWS -->
-    <section id="reviews">
-      <div class="container">
-        <h2 class="section-title">Отзывы родителей и учеников</h2>
-        <p class="section-intro">Ниже — реальные отклики родителей о том, как их дети ходят на занятия и реагируют на формат квеста.</p>
-
-        <div class="reviews-grid">
-          <div class="review-card">
-            <div class="review-name">Марина, мама Захара (7 лет)</div>
-            <div class="review-meta">Формат: игровые онлайн-уроки</div>
-            <p>Добрый день! Как здорово, что у вас занятия проходят в таком игровом формате. Благодарю за видео! Захару будет вас не хватать — на ваши уроки он бежит с большим удовольствием.</p>
-          </div>
-          <div class="review-card">
-            <div class="review-name">Нина, мама Ильи (4,5 года)</div>
-            <div class="review-meta">Младшая группа</div>
-            <p>Илья безумно любит ваши занятия. Для него это не «уроки», а любимые встречи и игры на английском.</p>
-          </div>
-          <div class="review-card">
-            <div class="review-name">Из переписки с мамой учеников</div>
-            <div class="review-meta">Старшая группа</div>
-            <p>«Мои уже ждут))) так хотят на занятия ☺️» — такие сообщения я получаю перед стартом нового месяца и каждого квеста. Для меня это главный показатель, что всё получается.</p>
+      <!-- REVIEWS -->
+      <section id="reviews">
+        <div class="container">
+          <h2 class="section-title">Отзывы родителей и учеников</h2>
+          <p class="section-intro">Ниже — реальные отклики родителей о том, как их дети ходят на занятия и реагируют на формат квеста.</p>
+          <div class="reviews-grid">
+            <div class="review-card">
+              <div class="review-name">Марина, мама Захара (7 лет)</div>
+              <div class="review-meta">Формат: игровые онлайн-уроки</div>
+              <p>Добрый день! Как здорово, что у вас занятия проходят в таком игровом формате. Благодарю за видео! Захару будет вас не хватать — на ваши уроки он бежит с большим удовольствием.</p>
+            </div>
+            <div class="review-card">
+              <div class="review-name">Нина, мама Ильи (4,5 года)</div>
+              <div class="review-meta">Младшая группа</div>
+              <p>Илья безумно любит ваши занятия. Для него это не «уроки», а любимые встречи и игры на английском.</p>
+            </div>
+            <div class="review-card">
+              <div class="review-name">Из переписки с мамой учеников</div>
+              <div class="review-meta">Старшая группа</div>
+              <p>«Мои уже ждут))) так хотят на занятия ☺️» — такие сообщения я получаю перед стартом нового месяца и каждого квеста. Для меня это главный показатель, что всё получается.</p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- PRIVACY -->
-    <section id="privacy">
-      <div class="container">
-        <h2 class="section-title">Обработка персональных данных</h2>
-        <p class="section-intro">
-          Заполняя форму на сайте или обращаясь ко мне через мессенджеры, вы передаёте свои контактные данные добровольно
-          и даёте согласие на их обработку исключительно в целях организации и проведения занятий по английскому языку.
-        </p>
-        <div class="card">
-          <ul class="list">
-            <li>Я не передаю ваши данные третьим лицам без вашего отдельного согласия.</li>
-            <li>Контактная информация используется только для связи по урокам, отправки материалов и согласования расписания.</li>
-            <li>По вашему запросу я могу удалить или уточнить ваши данные.</li>
-          </ul>
-          <p class="subtle">Если у вас есть вопросы по обработке персональных данных, напишите мне на <a href="mailto:i@sresnikova.ru">i@sresnikova.ru</a>.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq">
-      <div class="container">
-        <h2 class="section-title">Частые вопросы</h2>
-        <div class="faq-list">
-          <details>
-            <summary>С какого возраста можно начать занятия?</summary>
-            <p>Я работаю с детьми от 4 лет. Для малышей подбираю короткие игровые уроки по 45 минут, с большим количеством движения, песен и визуала.</p>
-          </details>
-          <details>
-            <summary>Нужны ли какие-то знания, чтобы начать?</summary>
-            <p>Нет. Я помогу начать буквально с нуля — и детям, и взрослым. Важно только желание попробовать и немного времени на регулярные занятия.</p>
-          </details>
-          <details>
-            <summary>Как проходит первое занятие?</summary>
-            <p>На первой встрече мы знакомимся, я мягко проверяю текущий уровень, узнаю интересы и цели. Для ребёнка это больше игра и общение, чем «проверка».</p>
-          </details>
-          <details>
-            <summary>Что, если ребёнок стесняется и боится говорить?</summary>
-            <p>Это нормально. Я создаю безопасную атмосферу, где можно ошибаться. Мы начинаем с простых игровых заданий, постепенно добавляя больше речи.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="contact-section">
-      <div class="container">
-        <div class="contact-inner">
-          <h2 class="section-title">Записаться на пробное занятие</h2>
-          <p class="contact-lead">
-            Напишите, для кого вы ищете занятия и какая цель: полюбить английский, подготовиться к экзаменам, снять страх говорить
-            или «наконец-то начать». Я отвечу вам лично, предложу формат и отправлю свободные слоты.
+      <!-- PRIVACY -->
+      <section id="privacy">
+        <div class="container">
+          <h2 class="section-title">Обработка персональных данных</h2>
+          <p class="section-intro">
+            Заполняя форму на сайте или обращаясь ко мне через мессенджеры, вы передаёте свои контактные данные добровольно
+            и даёте согласие на их обработку исключительно в целях организации и проведения занятий по английскому языку.
           </p>
+          <div class="card">
+            <ul class="list">
+              <li>Я не передаю ваши данные третьим лицам без вашего отдельного согласия.</li>
+              <li>Контактная информация используется только для связи по урокам, отправки материалов и согласования расписания.</li>
+              <li>По вашему запросу я могу удалить или уточнить ваши данные.</li>
+            </ul>
+            <p class="subtle">Если у вас есть вопросы по обработке персональных данных, напишите мне на <a href="mailto:i@sresnikova.ru">i@sresnikova.ru</a>.</p>
+          </div>
+        </div>
+      </section>
 
-          <form action="https://formspree.io/f/your-id-here" method="POST">
-            <div>
-              <label for="name">Имя</label>
-              <input id="name" name="name" type="text" placeholder="Как к вам обращаться" required />
-            </div>
-            <div>
-              <label for="contactField">Контакт для связи</label>
-              <input id="contactField" name="contact" type="text" placeholder="WhatsApp, Telegram или e-mail" required />
-            </div>
-            <div>
-              <label for="who">Кого будем учить?</label>
-              <select id="who" name="who">
-                <option value="">Выберите вариант</option>
-                <option value="child-4-6">Ребёнок 4–6 лет</option>
-                <option value="child-7-11">Ребёнок 7–11 лет</option>
-                <option value="teen-12-17">Подросток 12–17 лет</option>
-                <option value="adult">Взрослый</option>
-                <option value="family-abroad">Семья за границей</option>
-              </select>
-            </div>
-            <div>
-              <label for="message">Кратко о запросе</label>
-              <textarea id="message" name="message" placeholder="Например: боится говорить, нужна подготовка к экзамену, хотим начать с нуля..." ></textarea>
-            </div>
-            <button type="submit" class="btn-primary">Отправить заявку</button>
-          </form>
+      <!-- FAQ -->
+      <section id="faq">
+        <div class="container">
+          <h2 class="section-title">Частые вопросы</h2>
+          <div class="faq-list">
+            <details>
+              <summary>С какого возраста можно начать занятия?</summary>
+              <p>Я работаю с детьми от 4 лет. Для малышей подбираю короткие игровые уроки по 45 минут, с большим количеством движения, песен и визуала.</p>
+            </details>
+            <details>
+              <summary>Нужны ли какие-то знания, чтобы начать?</summary>
+              <p>Нет. Я помогу начать буквально с нуля — и детям, и взрослым. Важно только желание попробовать и немного времени на регулярные занятия.</p>
+            </details>
+            <details>
+              <summary>Как проходит первое занятие?</summary>
+              <p>На первой встрече мы знакомимся, я мягко проверяю текущий уровень, узнаю интересы и цели. Для ребёнка это больше игра и общение, чем «проверка».</p>
+            </details>
+            <details>
+              <summary>Что, если ребёнок стесняется и боится говорить?</summary>
+              <p>Это нормально. Я создаю безопасную атмосферу, где можно ошибаться. Начинаем с простых и понятных заданий, постепенно добавляя больше речи.</p>
+            </details>
+          </div>
+        </div>
+      </section>
 
-          <p class="contact-meta">
-            Или напишите мне напрямую:<br />
-            <strong>WhatsApp:</strong> +7 895 151-55-755<br />
-            <strong>E-mail:</strong> <a href="mailto:i@sresnikova.ru">i@sresnikova.ru</a><br />
-            <strong>Telegram-канал:</strong> <a href="https://t.me/EKSonline" target="_blank" rel="noopener noreferrer">@EKSonline</a>
-          </p>
+      <!-- CONTACT -->
+      <section id="contact" class="contact-section">
+        <div class="container contact-inner">
+          <div>
+            <h2 class="section-title">Записаться на пробное занятие</h2>
+            <p class="contact-lead">
+              Напишите, для кого вы ищете занятия и какая цель: полюбить английский, подготовиться к экзаменам, снять страх говорить
+              или «наконец-то начать». Я отвечу вам лично, предложу формат и отправлю свободные слоты.
+            </p>
+          </div>
+
+          <div>
+            <!-- форма уходит на почту через formsubmit.co -->
+            <form action="https://formsubmit.co/i@sresnikova.ru" method="POST">
+              <input type="hidden" name="_subject" value="Новая заявка с сайта EKS Online" />
+              <input type="hidden" name="_template" value="box" />
+              <input type="hidden" name="_captcha" value="false" />
+
+              <div>
+                <label for="name">Имя</label>
+                <input id="name" name="Имя" type="text" placeholder="Как к вам обращаться" required />
+              </div>
+
+              <div>
+                <label for="contact">Контакт для связи</label>
+                <input id="contact" name="Контакт" type="text" placeholder="WhatsApp, Telegram или e-mail" required />
+              </div>
+
+              <div>
+                <label for="who">Кого будем учить?</label>
+                <select id="who" name="Кого учим">
+                  <option value="" disabled selected>Выберите вариант</option>
+                  <option>Ребёнок 4–6 лет</option>
+                  <option>Ребёнок 7–11 лет</option>
+                  <option>Подросток 12–17 лет</option>
+                  <option>Взрослый</option>
+                  <option>Несколько человек / семья</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="message">Кратко о запросе</label>
+                <textarea id="message" name="Запрос" placeholder="Например: боится говорить, нужна подготовка к экзамену, хотим начать с нуля..."></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary" style="margin-top:0.8rem;">Отправить заявку</button>
+            </form>
+
+            <p class="contact-meta">
+              Или напишите мне напрямую:<br />
+              <strong>WhatsApp:</strong> +7 895 151-55-755<br />
+              <strong>E-mail:</strong> <a href="mailto:i@sresnikova.ru">i@sresnikova.ru</a><br />
+              <strong>Telegram-канал:</strong> <a href="https://t.me/EKSonline" target="_blank" rel="noreferrer">@EKSonline</a>
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div>© <span id="year"></span> EKS Online. Светлана Резникова.</div>
+        <div class="socials">
+          <a href="#privacy">Политика персональных данных</a>
+          <a href="mailto:i@sresnikova.ru">Связаться по e-mail</a>
         </div>
       </div>
-    </section>
-  </main>
+    </footer>
+  </div>
 
-  <footer>
-    <div class="footer-inner">
-      <div>© <span id="year"></span> EKS Online. Светлана Резникова.</div>
-      <div class="socials">
-        <a href="mailto:i@sresnikova.ru">Написать на e-mail</a>
-        <a href="https://t.me/EKSonline" target="_blank" rel="noopener noreferrer">Telegram-канал</a>
-      </div>
-    </div>
-  </footer>
-</div>
-
-<script>
-  // Год в подвале
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+  <script>
+    // год в подвале
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
-
