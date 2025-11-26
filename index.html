@@ -5,7 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EKS Online — репетитор английского языка онлайн</title>
   <meta name="description" content="EKS Online — онлайн-уроки английского для детей, подростков и взрослых. Светлана Резникова, 15 лет опыта, 2000+ учеников, игровой формат, подготовка к экзаменам, квесты и челленджи." />
+/* --- ФИКС ЛОГОТИПА, ЧТОБЫ ОН ВСЕГДА БЫЛ ИДЕАЛЬНЫМ КРУГОМ --- */
+.logo-mark {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  flex: 0 0 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+/* На очень маленьких экранах чуть уменьшаем, но оставляем круг */
+@media (max-width: 600px) {
+  .logo-mark {
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
+  }
+}
+
+/* --- ФИКС ТЕКСТА В БОЛЬШОМ КРУГЕ --- */
+/* здесь важно, что текст сидит внутри .hero-orbit-inner
+   (или .hero-circle-text — на всякий случай добавила оба селектора) */
+
+.hero-orbit-inner,
+.hero-circle-text {
+  font-size: 1.15rem;      /* чуть крупнее */
+  line-height: 1.35;       /* плотнее строки, но всё ещё читаемо */
+  color: #ffffff;          /* ярко-белый текст */
+  text-shadow: 0 0 12px rgba(0, 0, 0, 0.45); /* лёгкое свечение для контраста */
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .hero-orbit-inner,
+  .hero-circle-text {
+    font-size: 1.05rem;    /* на телефоне — немного меньше, но всё равно заметно */
+  }
+}
   <style>
     :root {
       --bg-deep: #050b49;
@@ -1344,3 +1382,4 @@
 </script>
 </body>
 </html>
+
